@@ -9,10 +9,21 @@
 
   <script>
     console.log("Hello World");
+
+    const choices = ["rock", "paper", "scissors"];
+
     function getComputerChoice() {
-      const choices = ["rock", "paper", "scissors"];
       return choices[Math.floor(Math.random() * 3)];
     }
-    console.log(getComputerChoice());
+
+    function getHumanChoice() {
+      let humanChoice = prompt("Choose your move! (rock, paper or scissors)");
+      while (choices.includes(humanChoice) === false) {
+        humanChoice = prompt(
+          "That's not a valid move! Choose rock, paper or scissors."
+        );
+      }
+      return humanChoice;
+    }
   </script>
 </html>
