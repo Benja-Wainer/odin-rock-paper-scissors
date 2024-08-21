@@ -23,7 +23,11 @@
           "That's not a valid move! Choose rock, paper or scissors."
         );
       }
-      return humanChoice;
+      return humanChoice.toLowerCase();
+    }
+
+    function capitalize(string) {
+      return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
     function playGame() {
@@ -38,10 +42,14 @@
           (humanChoice === "paper" && computerChoice === "rock") ||
           (humanChoice === "scissors" && computerChoice === "paper")
         ) {
-          console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+          console.log(
+            `You win! ${capitalize(humanChoice)} beats ${computerChoice}.`
+          );
           humanScore += 1;
         } else {
-          console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+          console.log(
+            `You lose! ${capitalize(computerChoice)} beats ${humanChoice}.`
+          );
           computerScore += 1;
         }
       }
